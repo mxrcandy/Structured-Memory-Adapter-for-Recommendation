@@ -58,6 +58,12 @@ For Instruments use `DATA_PROFILE=amazon_letter_instruments TASK_TYPES=amazon_in
 Install `lm-eval==0.4.8` in the vLLM evaluation environment, prepare the official dataset cache once on a networked machine, and then run offline:
 
 ```bash
+pip install lm-eval==0.4.8
+```
+
+Then prepare the datasets and run the suite:
+
+```bash
 python benchmarks/lm_eval/prepare_data.py --data-dir data/general_benchmark
 
 MODEL_PATH=/path/to/converted \
