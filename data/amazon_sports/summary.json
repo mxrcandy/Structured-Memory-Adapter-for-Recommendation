@@ -1,0 +1,99 @@
+{
+  "dataset": "LETTER/Sports",
+  "split": "leave-last-one-out; no validation",
+  "seed": 42,
+  "counts": {
+    "stage1": 18357,
+    "stage2": 35598,
+    "sft": 35598,
+    "benchmark": 35598,
+    "sid2pid": 18265
+  },
+  "sid_layers": 4,
+  "sid_vocab_per_layer": 256,
+  "pid_rule": "pid = raw item_id + 1; 0 is reserved by evaluator",
+  "training_interactions": 260739,
+  "history_items": {
+    "count": 35598,
+    "min": 4,
+    "max": 295,
+    "mean": 7.3245407045339626,
+    "p50": 5.0,
+    "p90": 12.0,
+    "p95": 17.0,
+    "p99": 31.0
+  },
+  "max_length": 2048,
+  "max_history_items": null,
+  "history_sequences_truncated": 0,
+  "stage1_text_truncated": 14,
+  "original_stage1_tokens": {
+    "count": 18357,
+    "min": 16,
+    "max": 17079,
+    "mean": 153.62956910170507,
+    "p50": 101.0,
+    "p90": 318.0,
+    "p95": 426.0,
+    "p99": 733.0799999999908
+  },
+  "token_lengths": {
+    "stage1": {
+      "count": 18357,
+      "min": 16,
+      "max": 2048,
+      "mean": 148.52307021844527,
+      "p50": 101.0,
+      "p90": 318.0,
+      "p95": 426.0,
+      "p99": 733.0799999999908
+    },
+    "stage2": {
+      "count": 35598,
+      "min": 25,
+      "max": 1771,
+      "mean": 44.947244227203775,
+      "p50": 31.0,
+      "p90": 73.0,
+      "p95": 103.0,
+      "p99": 187.0
+    },
+    "sft": {
+      "count": 35598,
+      "min": 80,
+      "max": 1826,
+      "mean": 99.94724422720378,
+      "p50": 86.0,
+      "p90": 128.0,
+      "p95": 158.0,
+      "p99": 242.0
+    },
+    "sft_benchmark_template": {
+      "count": 35598,
+      "min": 83,
+      "max": 1829,
+      "mean": 102.94724422720378,
+      "p50": 89.0,
+      "p90": 131.0,
+      "p95": 161.0,
+      "p99": 245.0
+    },
+    "benchmark_prompt_plus_generation": {
+      "count": 35598,
+      "min": 85,
+      "max": 1831,
+      "mean": 104.94724422720378,
+      "p50": 91.0,
+      "p90": 133.0,
+      "p95": 163.0,
+      "p99": 247.0
+    }
+  },
+  "tokenizer": "Qwen3-0.6B base tokenizer with 4x256 SID tokens added",
+  "tokenizer_note": "Measured after adding 4x256 SID tokens and wrappers; base model files unchanged",
+  "input_sha256": {
+    "Sports.inter.json": "20ffe5a48eaf1d53fc7d249ebb726717f8e75884df4738c6c69684309a228ce3",
+    "Sports.item.json": "ca0955ab8e0143e2057fddc104ffd8ed8233012b9407e0d49dd7e1731a63d071",
+    "Sports.index.json": "30deed32f79f79fe6f623fbcba09ed2b16c98dd779efa3e3388b33fcd9531bd4"
+  }
+}

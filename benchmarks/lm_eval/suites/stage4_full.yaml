@@ -1,0 +1,9 @@
+name: stage4_full
+tasks:
+  - mmlu_pro
+  - gsm8k
+  - ifeval
+  - gpqa_diamond_zeroshot
+  - minerva_math500
+num_fewshot: 0
+seed: 42

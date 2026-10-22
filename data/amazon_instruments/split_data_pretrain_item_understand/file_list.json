@@ -1,0 +1,12 @@
+[
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00000.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00001.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00002.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00003.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00004.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00005.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00006.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00007.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00008.parquet",
+  "data/amazon_instruments/split_data_pretrain_item_understand/part-00009.parquet"
+]

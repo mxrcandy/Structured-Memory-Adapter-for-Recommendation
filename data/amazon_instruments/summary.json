@@ -1,0 +1,97 @@
+{
+  "dataset": "LETTER/Instruments",
+  "split": "leave-last-one-out; no validation",
+  "seed": 42,
+  "counts": {
+    "stage1": 9922,
+    "stage2": 24772,
+    "sft": 24772,
+    "benchmark": 24772,
+    "sid2pid": 9897
+  },
+  "sid_layers": 4,
+  "sid_vocab_per_layer": 256,
+  "pid_rule": "pid = raw item_id + 1; 0 is reserved by evaluator",
+  "training_interactions": 181381,
+  "history_items": {
+    "count": 24772,
+    "min": 4,
+    "max": 217,
+    "mean": 7.32201679315356,
+    "p50": 5.0,
+    "p90": 12.0,
+    "p95": 17.0,
+    "p99": 30.290000000000873
+  },
+  "max_length": 2048,
+  "stage1_text_truncated": 0,
+  "original_stage1_tokens": {
+    "count": 9922,
+    "min": 20,
+    "max": 1480,
+    "mean": 144.02328159645234,
+    "p50": 111.0,
+    "p90": 312.0,
+    "p95": 392.0,
+    "p99": 473.0
+  },
+  "token_lengths": {
+    "stage1": {
+      "count": 9922,
+      "min": 20,
+      "max": 1480,
+      "mean": 144.02328159645234,
+      "p50": 111.0,
+      "p90": 312.0,
+      "p95": 392.0,
+      "p99": 473.0
+    },
+    "stage2": {
+      "count": 24772,
+      "min": 25,
+      "max": 1303,
+      "mean": 44.932100758921365,
+      "p50": 31.0,
+      "p90": 73.0,
+      "p95": 103.0,
+      "p99": 182.74000000000524
+    },
+    "sft": {
+      "count": 24772,
+      "min": 80,
+      "max": 1358,
+      "mean": 99.93210075892137,
+      "p50": 86.0,
+      "p90": 128.0,
+      "p95": 158.0,
+      "p99": 237.74000000000524
+    },
+    "sft_benchmark_template": {
+      "count": 24772,
+      "min": 83,
+      "max": 1361,
+      "mean": 102.93210075892137,
+      "p50": 89.0,
+      "p90": 131.0,
+      "p95": 161.0,
+      "p99": 240.74000000000524
+    },
+    "benchmark_prompt_plus_generation": {
+      "count": 24772,
+      "min": 85,
+      "max": 1363,
+      "mean": 104.93210075892137,
+      "p50": 91.0,
+      "p90": 133.0,
+      "p95": 163.0,
+      "p99": 242.74000000000524
+    }
+  },
+  "tokenizer": "Qwen3-0.6B base tokenizer with 4x256 SID tokens added",
+  "tokenizer_note": "Measured after adding 4x256 SID tokens and wrappers; base model files unchanged",
+  "input_sha256": {
+    "Instruments.inter.json": "0a11d47791d90483005da93c36d826679e20e4592d1d2b86518d5f56f218e743",
+    "Instruments.item.json": "1d9938e576a8d964e6b977a2b63aa56402840a788eaa6685f26f0d910a7133f2",
+    "Instruments.index.json": "33c87e28c52ae367985bdf494cb49d676d181e13a39497b4ad035f46111546dd"
+  }
+}

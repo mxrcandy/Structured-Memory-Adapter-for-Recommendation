@@ -1,0 +1,7 @@
+name: stage4_reasoning
+tasks:
+  - mmlu_pro
+  - gsm8k
+  - gpqa_diamond_zeroshot
+num_fewshot: 0
+seed: 42

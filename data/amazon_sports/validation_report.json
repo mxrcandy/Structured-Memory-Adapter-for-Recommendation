@@ -1,0 +1,29 @@
+{
+  "dataset": "Sports",
+  "users": 35598,
+  "items": 18357,
+  "benchmark_rows": 35598,
+  "shards": {
+    "pretrain_item_understand": 19,
+    "pretrain_amazon_seq_rec": 36,
+    "sft_amazon_seq_rec": 36
+  },
+  "source_hashes_verified": true,
+  "beauty_schemas_verified": true,
+  "all_sequence_splits_targets_and_mapping_verified": true,
+  "shards_exactly_cover_tasks": true,
+  "max_history_items": null,
+  "truncated_users": 0,
+  "token_maxima": {
+    "stage1": 2048,
+    "stage2": 1771,
+    "sft": 1826,
+    "sft_benchmark_template": 1829,
+    "benchmark_prompt_plus_generation": 1831
+  },
+  "item_texts_truncated": 14,
+  "independent_tokenizer_all_rows_verified": true,
+  "real_benchmark_loader_and_evaluator_verified": true,
+  "three_stage_training_shell_mock_integration_passed": true,
+  "registration_regression_tests_passed": 20
+}

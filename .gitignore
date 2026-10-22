@@ -1,0 +1,20 @@
+# Model weights and training/evaluation outputs
+*.safetensors
+*.bin
+*.pt
+*.pth
+checkpoint*/
+model_output/
+benchmark_results/
+benchmark_logs/
+results/
+outputs/
+
+# Runtime caches and logs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+hf_cache/
+*.log
+tb_logs/

@@ -1,0 +1,7 @@
+name: stage4_core
+tasks:
+  - mmlu_pro
+  - gsm8k
+  - ifeval
+num_fewshot: 0
+seed: 42

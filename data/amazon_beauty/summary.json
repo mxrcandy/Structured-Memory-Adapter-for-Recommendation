@@ -1,0 +1,97 @@
+{
+  "dataset": "LETTER/Beauty",
+  "split": "leave-last-one-out; no validation",
+  "seed": 42,
+  "counts": {
+    "stage1": 12101,
+    "stage2": 22363,
+    "sft": 22363,
+    "benchmark": 22363,
+    "sid2pid": 12088
+  },
+  "sid_layers": 4,
+  "sid_vocab_per_layer": 256,
+  "pid_rule": "pid = raw item_id + 1; 0 is reserved by evaluator",
+  "training_interactions": 176139,
+  "history_items": {
+    "count": 22363,
+    "min": 4,
+    "max": 203,
+    "mean": 7.8763582703572865,
+    "p50": 5.0,
+    "p90": 13.0,
+    "p95": 20.0,
+    "p99": 42.0
+  },
+  "max_length": 2048,
+  "stage1_text_truncated": 6,
+  "original_stage1_tokens": {
+    "count": 12101,
+    "min": 20,
+    "max": 5988,
+    "mean": 134.682753491447,
+    "p50": 98.0,
+    "p90": 273.0,
+    "p95": 393.0,
+    "p99": 526.0
+  },
+  "token_lengths": {
+    "stage1": {
+      "count": 12101,
+      "min": 20,
+      "max": 2048,
+      "mean": 134.24873977357242,
+      "p50": 98.0,
+      "p90": 273.0,
+      "p95": 393.0,
+      "p99": 526.0
+    },
+    "stage2": {
+      "count": 22363,
+      "min": 25,
+      "max": 1219,
+      "mean": 48.25814962214372,
+      "p50": 31.0,
+      "p90": 79.0,
+      "p95": 121.0,
+      "p99": 253.0
+    },
+    "sft": {
+      "count": 22363,
+      "min": 80,
+      "max": 1274,
+      "mean": 103.25814962214372,
+      "p50": 86.0,
+      "p90": 134.0,
+      "p95": 176.0,
+      "p99": 308.0
+    },
+    "sft_benchmark_template": {
+      "count": 22363,
+      "min": 83,
+      "max": 1277,
+      "mean": 106.25814962214372,
+      "p50": 89.0,
+      "p90": 137.0,
+      "p95": 179.0,
+      "p99": 311.0
+    },
+    "benchmark_prompt_plus_generation": {
+      "count": 22363,
+      "min": 85,
+      "max": 1279,
+      "mean": 108.25814962214372,
+      "p50": 91.0,
+      "p90": 139.0,
+      "p95": 181.0,
+      "p99": 313.0
+    }
+  },
+  "tokenizer": "Qwen3-0.6B base tokenizer with 4x256 SID tokens added",
+  "tokenizer_note": "Measured after adding 4x256 SID tokens and wrappers; base model files unchanged",
+  "input_sha256": {
+    "Beauty.inter.json": "8809584b8b78fa6561771c88911ed65bd716fc9926fca1e581e6a1ab578ccfd5",
+    "Beauty.item.json": "74aeddf911548aadfcd1dab326c16678ed4ac74457e874da300d63a94bdb2330",
+    "Beauty.index.json": "be3fb890e59b5443824cdebc560ef349191b97f20d3aecad4727de2d6b212c82"
+  }
+}
