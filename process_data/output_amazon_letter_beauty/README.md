@@ -20,7 +20,7 @@ python process_data/prepare_rec_amazon_data.py
 | SFT | 指令 + `s[:-2]`，assistant 输出 `s[-2]` | 22,363 |
 | Benchmark | 指令 + `s[:-1]`，metadata 答案为 `s[-1]`，messages 无答案 | 22,363 |
 
-没有 validation、滑动窗口、domain token、用户画像或通用数据混合。测试只保留每个用户最后一次交互；商品目录是全量的，测试商品的文本可用于 Stage 1。重复交互按时间位置划分，不额外删除训练历史中出现过的商品。
+没有滑动窗口、domain token、用户画像或通用数据混合。测试只保留每个用户最后一次交互；商品目录是全量的，测试商品的文本可用于 Stage 1。重复交互按时间位置划分，不额外删除训练历史中出现过的商品。
 
 SID 使用 LETTER 的全部四层，映射为 `<|sid_begin|><s_a_i><s_b_j><s_c_k><s_d_l><|sid_end|>`，每层 256。保留原始碰撞：12,101 商品对应 12,088 个唯一 SID。无 domain token。
 
@@ -77,14 +77,5 @@ PYTHONPATH=. python scripts/ray-vllm/evaluate.py \
 ```
 
 `sample_size=3000` 沿用现有 head(3000) 规则，首次保存 `amazon_beauty/amazon_beauty_test_sample_3000.parquet`，后续复用。当前只生成完整测试文件，没有预先生成 3000 样本缓存。
-
-验证命令：
-
-```bash
-python -m unittest discover -s process_data/tests -v
-conda run -n openonerec_benchmark python process_data/tests/verify_amazon_output.py
-```
-
-第二个命令在 `openonerec_benchmark` 中审核全量 split、分片、映射、长度，并通过正常包导入使用真实 BaseLoader / RecommendationEvaluator 做 CPU 验证，不替换日志或模块。训练/构建使用 `openonerec`，评测使用独立环境；没有安装包或执行 GPU 推理。
 
 用真实答案模拟预测时 SID pass@1=1，PID pass@1≈0.999016：保留 SID 碰撞并固定选择热门 PID 导致 22 个测试 target 无法命中。这是映射策略的结果，不是模型跑分。

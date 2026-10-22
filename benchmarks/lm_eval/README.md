@@ -37,13 +37,7 @@ GENERAL_EVAL_SUITE=stage4_core \
 bash benchmarks/eval_general.sh
 ```
 
-For Slurm, pass the checkpoint as an exported variable, matching the video
-benchmark entry point:
-
-```bash
-sbatch --export=ALL,REPO_ROOT=/path/to/OpenOneRec,MODEL_PATH=/path/to/converted \
-  benchmarks/slurm_eval_general.sbatch
-```
+Run the command from an allocated compute job. Scheduler submission files are site-specific and are not included in this repository.
 
 Suites are YAML files in `suites/`. Add or remove official lm-eval task names
 there without changing the runner.
@@ -58,8 +52,7 @@ bootstrap configures prompts, generation parameters and sample limits before
 lm-eval constructs requests, identically for tensor and data execution modes.
 Memory adapters use the recommendation worker's scheduler/history bridge.
 
-Keep Slurm `-n 1` and `--gres=gpu:4`. `RAY_NUM_CPUS` defaults to
-`SLURM_CPUS_PER_TASK` (or 8 outside Slurm). Each Ray actor retains its assigned
+`RAY_NUM_CPUS` defaults to `SLURM_CPUS_PER_TASK` when provided (or 8 otherwise). Each Ray actor retains its assigned
 GPU visibility and isolated Transformers module cache. Worker readiness has
 a 600-second timeout, adjustable with `GENERAL_WORKER_START_TIMEOUT`.
 

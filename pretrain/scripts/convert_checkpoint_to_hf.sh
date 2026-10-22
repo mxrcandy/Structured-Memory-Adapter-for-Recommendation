@@ -2,6 +2,8 @@
 
 set -e
 
+cd "$(dirname "$0")/.."
+
 BASE_MODEL_DIR=$1
 MODEL_HOME=$2
 STEP=$3

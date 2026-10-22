@@ -6,11 +6,6 @@ E2E_COMMON_REPO_ROOT="$(cd "$E2E_COMMON_PRETRAIN_DIR/.." && pwd)"
 
 # shellcheck source=scripts/data_profiles.sh
 source "$E2E_COMMON_DIR/data_profiles.sh"
-# shellcheck source=scripts/e2e_rec_eval.sh
-source "$E2E_COMMON_PRETRAIN_DIR/scripts/e2e_rec_eval.sh"
-# shellcheck source=scripts/e2e_general_eval.sh
-source "$E2E_COMMON_PRETRAIN_DIR/scripts/e2e_general_eval.sh"
-
 read_latest_step() {
   local model_home="$1"
   local latest_file="$model_home/latest"
@@ -85,12 +80,6 @@ write_e2e_summary() {
     echo "sft_output_dir: $SFT_OUTPUT_DIR"
     echo "sft_step: ${SFT_STEP:-}"
     echo "sft_converted_model_dir: ${SFT_CONVERTED_MODEL_DIR:-}"
-    echo "eval_submission_mode: ${EVAL_SUBMISSION_MODE:-not_submitted}"
-    echo "eval_job_id: ${EVAL_JOB_ID:-}"
-    echo "rec_eval_adapter_enabled: ${REC_EVAL_ADAPTER_ENABLED:-true}"
-    echo "general_eval_submission_mode: ${GENERAL_EVAL_SUBMISSION_MODE:-not_submitted}"
-    echo "general_eval_job_id: ${GENERAL_EVAL_JOB_ID:-}"
-    echo "general_eval_adapter_enabled: ${GENERAL_EVAL_ADAPTER_ENABLED:-true}"
   } > "$SUMMARY_FILE"
 }
 
@@ -139,11 +128,8 @@ run_e2e_pipeline() {
     return 1
   }
 
-  submit_e2e_rec_eval "$SFT_CONVERTED_MODEL_DIR"
-  submit_e2e_general_eval "$SFT_CONVERTED_MODEL_DIR"
   write_e2e_summary
   echo "Final converted model: $SFT_CONVERTED_MODEL_DIR"
-  echo "Evaluation submission mode: $EVAL_SUBMISSION_MODE"
-  echo "Evaluation job ID: ${EVAL_JOB_ID:-not submitted}"
+  echo "Run recommendation and general-capability evaluations separately with the commands in README.md."
   echo "Summary: $SUMMARY_FILE"
 }

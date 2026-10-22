@@ -176,7 +176,6 @@ pynvml==13.0.1
 pyparsing==2.4.7
 pyproject_hooks==1.2.0
 pysmhasher==0.2.5
-pytest==8.3.5
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-multipart==0.0.20

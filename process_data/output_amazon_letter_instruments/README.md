@@ -1,7 +1,7 @@
 # LETTER Instruments
 
-Independent Instruments corpus, using the same protocol as Beauty. No validation
-split, sliding windows, domain token, or cross-catalog SID disambiguation.
+Independent Instruments corpus, using the same protocol as Beauty. No sliding
+windows, domain token, or cross-catalog SID disambiguation.
 
 For each original user sequence `s`:
 
@@ -43,8 +43,7 @@ catalog/sequences are under `intermediate`.
 
 ## Training and Evaluation
 
-Use `DATA_PROFILE=amazon_letter_instruments` with the existing
-`pretrain/scripts/slurm_train_amazon.sbatch` or `slurm_e2e_amazon.sbatch`.
+Use `DATA_PROFILE=amazon_letter_instruments` with the training shell entry points from an allocated compute job. Scheduler submission files are site-specific and are not included.
 The profile selects Instruments shards, MAX_LENGTH=2048 and SID IDs 151669-152694.
 Train a separate Instruments Stage 1 and pass its converted checkpoint to e2e.
 
@@ -56,18 +55,7 @@ benchmark_data/sid2pid.json
 benchmark_data/sid2iid.json
 ```
 
-E2E submits `benchmarks/slurm_eval_amazon.sbatch` with TASK_TYPES=amazon_instruments.
 `eval_amazon.sh` selects this corpus's benchmark directory from the task, unless
 BENCHMARK_DATA_DIR is explicitly overridden. Standalone evaluation also accepts
 DATA_PROFILE=amazon_letter_instruments or TASK_TYPES=amazon_instruments.
 Beauty and Instruments catalogs/mappings must be evaluated independently.
-
-## Verify
-
-```bash
-conda run -n openonerec_benchmark python process_data/tests/verify_amazon_output.py --dataset Instruments
-```
-
-This audits all splits, lengths and mappings, then loads the registered benchmark
-and computes metrics with synthetic perfect SID predictions (no GPU inference).
-Retained collisions produce PID pass@1=0.9978604876 even with perfect SID predictions.

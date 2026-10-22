@@ -3,8 +3,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-HF_MODEL_DIR="${HF_MODEL_DIR:-/home/miaoxinrui/OpenOneRec/hf_models/Qwen3-1.7B}"
-OUTPUT_MODEL_DIR="${OUTPUT_MODEL_DIR:-/home/miaoxinrui/OpenOneRec/hf_models/Qwen3-1.7B_itemic}"
+HF_MODEL_DIR="${HF_MODEL_DIR:?Set HF_MODEL_DIR to the base Qwen3 checkpoint.}"
+OUTPUT_MODEL_DIR="${OUTPUT_MODEL_DIR:?Set OUTPUT_MODEL_DIR to the expanded checkpoint destination.}"
 ITEMIC_LAYER_N="${ITEMIC_LAYER_N:-3}"
 VOCAB_SIZE_PER_LAYER="${VOCAB_SIZE_PER_LAYER:-8192}"
 
