@@ -5,7 +5,7 @@ This repository contains the SMAR implementation and the reproduction paths for 
 ## What is included
 
 - Training implementation and scripts under `pretrain/` (Qwen3 model integration, data loading, structured memory modules, checkpoint conversion, and focused tests).
-- Amazon Beauty, Instruments, and Sports processed data under `data/`; each includes training shards and recommendation benchmark inputs/mappings. The three datasets occupy about 147 MB total.
+- Amazon Beauty, Instruments, and Sports processed data are included under `process_data/output_amazon_letter_{beauty,instruments,sports}/`, the paths used directly by training and recommendation evaluation (about 147 MB total).
 - Recommendation benchmark implementation under `benchmarks/benchmark/`, using the tasks `amazon_beauty`, `amazon_instruments`, and `amazon_sports`.
 - General benchmark wrapper under `benchmarks/lm_eval/`; the default `stage4_core` suite is MMLU-Pro, GSM8K, and IFEval. Official benchmark datasets are downloaded/cached separately.
 
@@ -88,4 +88,4 @@ The quality reproduction requires the external Qwen3 checkpoint, supported GPUs/
 
 ## Data and attribution
 
-The included recommendation data is processed from Amazon Review data for the Beauty, Musical Instruments, and Sports & Outdoors domains. The `data/*/README.md` and metadata files retain processing provenance. Respect the source dataset terms and cite the corresponding Amazon Reviews dataset. The code is derived from the OpenOneRec research codebase; benchmark code retains its included license and notices. A repository-wide license is omitted pending confirmation of all upstream code and data rights.
+The included recommendation data is processed from Amazon Review data for the Beauty, Musical Instruments, and Sports & Outdoors domains. Each dataset README and metadata file under `process_data/output_amazon_letter_*/` retains processing provenance. Respect the source dataset terms and cite the corresponding Amazon Reviews dataset. The code is derived from the OpenOneRec research codebase; benchmark code retains its included license and notices. A repository-wide license is omitted pending confirmation of all upstream code and data rights.
