@@ -18,3 +18,4 @@ __pycache__/
 hf_cache/
 *.log
 tb_logs/
+*.egg-info/

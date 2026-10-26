@@ -130,6 +130,6 @@ run_e2e_pipeline() {
 
   write_e2e_summary
   echo "Final converted model: $SFT_CONVERTED_MODEL_DIR"
-  echo "Run recommendation and general-capability evaluations separately with the commands in benchmarks/lm_eval/README.md."
+  echo "Run recommendation and general-capability evaluations separately with benchmarks/eval_amazon.sh and benchmarks/eval_general.sh."
   echo "Summary: $SUMMARY_FILE"
 }
