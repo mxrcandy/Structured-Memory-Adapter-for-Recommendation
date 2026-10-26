@@ -32,7 +32,7 @@ writes `manifest.json`. It does not create the old RecIF parquet format.
 
 ```bash
 MODEL_PATH=/path/to/converted \
-PYTHON_BIN=/home/miaoxinrui/miniconda3/envs/openonerec_lm_eval/bin/python \
+PYTHON_BIN=/path/to/openonerec_lm_eval/bin/python \
 GENERAL_EVAL_SUITE=stage4_core \
 bash benchmarks/eval_general.sh
 ```
